@@ -25,3 +25,16 @@ bool set_data_Clipboard(char* source) {
 	return 0;
 }
 
+bool get_data_Clipboard(char** source) {
+//в эту переменную сохраним текст из буфера обмена
+	if (OpenClipboard(NULL))//открываем буфер обмена
+	{
+		HANDLE hData = GetClipboardData(CF_TEXT);//извлекаем текст из буфера обмена
+		char* chBuffer = (char*)GlobalLock(hData);//блокируем память
+		*source = chBuffer;
+		GlobalUnlock(hData);//разблокируем память
+		CloseClipboard();//закрываем буфер обмена
+		return 1;
+	}
+	return 0;
+}

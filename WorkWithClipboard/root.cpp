@@ -5,8 +5,12 @@
 #include <atlstr.h>
 #include <wchar.h>
 #include "Header.h"
+#include <cstdlib>
 
 int main() {
 	setlocale(LC_ALL, "RUS");
-	char source[50] = { "Hello world!" };
+	std::system("chcp 1251");
+	char *source;
+	get_data_Clipboard(&source);
+	//std::cout << source << std::endl;
 }

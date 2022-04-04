@@ -5,6 +5,8 @@
 #include <windows.h>
 #include <atlstr.h>
 #include <wchar.h>
+#include <cstdlib>
+
 
 bool set_data_Clipboard(char* source) {
 	//в эту переменную нужно записать текст, который в дальнейшем поместится в буфер обмена
